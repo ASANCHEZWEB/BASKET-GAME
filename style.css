@@ -1,0 +1,40 @@
+.containerJuego{
+    background-image: url("fondo-juego.jpg");
+    border: 1px solid #ff0000;
+    background-size: cover;
+    width: 606px;
+    height: 680px;
+    margin: 0 auto;
+}
+.tabla{
+    position: relative;
+    background-image: url("tabla.jpeg");
+    width: 117px;
+    height: 13px;
+    
+}
+
+.pelota{
+    background-image: url("pelota.png");
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    width: 20px;
+    height: 20px;
+
+}
+.muro{
+    width: 117px;
+    height: 50px;
+    background-image: url("muro.jpg");
+    background-size: cover;
+    position: relative;
+}
+.campana{
+    background-image: url("campana.png");
+    background-size: cover;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    left: 275px;
+}

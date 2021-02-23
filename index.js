@@ -1,16 +1,3 @@
-//MOVER TABLA
-
-document.addEventListener(
-  "keydown",
-  (logKey = (e) => {
-    if (e.code === "ArrowLeft" && Number(document.querySelector(".tabla").style.left.replace("px", "")) !== 1) {
-      document.querySelector(".tabla").style.left = `${Number(document.querySelector(".tabla").style.left.replace("px", "")) - 15}px`;
-    }
-    if (e.code === "ArrowRight" && Number(document.querySelector(".tabla").style.left.replace("px", "")) !== 481) {
-      document.querySelector(".tabla").style.left = `${Number(document.querySelector(".tabla").style.left.replace("px", "")) + 15}px`;
-    }
-  })
-);
 
 //GENERAR LOS 3 MUROS Y MOVERLOS
 class Muro {
@@ -93,13 +80,13 @@ class Pelota {
   testBottomColision() {
     let state = false;
     muros.forEach((element, index) => {
-      if ( this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 244 && index == 2 ) {
+      if ( this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 244 && index == 2 ) {
         state = true;
       }
-      if (this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 193 && index == 1) {
+      if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 193 && index == 1) {
         state = true;
       }
-      if (this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 144 && index == 0) {
+      if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 144 && index == 0) {
         state = true;
       }
     });
@@ -109,13 +96,13 @@ class Pelota {
 testTopColision() {
     let state = false;
     muros.forEach((element, index) => {
-      if (this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 194 && index == 2) {
+      if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 194 && index == 2) {
         state = true;
       }
-      if (this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 143 && index == 1) {
+      if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 143 && index == 1) {
         state = true;
       }
-      if (this.left >= element.positionX - 10 && this.left < element.positionX + 120 && this.top - element.positionY == 94 && index == 0) {
+      if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 94 && index == 0) {
         state = true;
       }
     });
@@ -126,13 +113,13 @@ testTopColision() {
 testRightColision() {
     let state = false;
     muros.forEach((element, index) => {
-        if (index==0 && this.left==element.positionX+117&& this.top>=179 && this.top<=229) {
+        if (index==0 && this.left==element.positionX+117&& this.top>=175 && this.top<=231) {
             state = true;
           }
-          if (index==1 && this.left==element.positionX+117&& this.top>=335 && this.top<=385) {
+          if (index==1 && this.left==element.positionX+117&& this.top>=330 && this.top<=390) {
             state = true;
           }
-          if (index==2 && this.left==element.positionX+117&& this.top>=482 && this.top<=532) {
+          if (index==2 && this.left==element.positionX+117&& this.top>=477 && this.top<=537) {
             state = true;
           }
     });
@@ -142,13 +129,13 @@ testRightColision() {
   testLeftColision() {
     let state = false;
     muros.forEach((element, index) => {
-        if (index==0 && this.left==element.positionX-20 && this.top>=179 && this.top<=229) {
+        if (index==0 && this.left==element.positionX-20 && this.top>=175 && this.top<=231) {
             state = true;
           }
-          if (index==1 && this.left==element.positionX-20 && this.top>=335 && this.top<=385) {
+          if (index==1 && this.left==element.positionX-20 && this.top>=330 && this.top<=390) {
             state = true;
           }
-          if (index==2 && this.left==element.positionX-20 && this.top>=482 && this.top<=532) {
+          if (index==2 && this.left==element.positionX-20 && this.top>=477 && this.top<=537) {
             state = true;
           }
     });
@@ -195,13 +182,50 @@ testRightColision() {
 let pelota = new Pelota(5, "up", "left", 292, 634, false);
 pelota.pintarPelota();
 
-//Lanzarla
-document.addEventListener(
-  "keydown",
-  (logKey = (e) => {
+//LANZAR PELOTA Y MOVER DE DERECHA A IZQUIERDA LA TABLA
+let moveRightInterval="";
+function moveRight() {
+    if(Number(document.querySelector(".tabla").style.left.replace("px", ""))<489){
+        document.querySelector(".tabla").style.left = `${Number(document.querySelector(".tabla").style.left.replace("px", "")) + 1}px`;  
+    }
+}
+let moveLeftInterval="";
+function moveLeft() {
+    if(Number(document.querySelector(".tabla").style.left.replace("px", ""))>0){
+        document.querySelector(".tabla").style.left = `${Number(document.querySelector(".tabla").style.left.replace("px", "")) - 1}px`;
+    }   
+}
+
+let pulsadaA=false;
+let pulsadaD=false;
+document.addEventListener("keydown",(logKey = (e) => {
     if (e.code === "Space") {
       pelota.run = true;
       pelota.move();
     }
+    if (e.code === "ArrowLeft") {
+        if(pulsadaA!==true){
+            pulsadaA=true;
+            moveLeftInterval=setInterval(moveLeft, 1);
+        }  
+      }
+    if (e.code === "ArrowRight") {
+       if(pulsadaD!==true){
+           pulsadaD=true;
+           moveRightInterval=setInterval(moveRight, 1);
+       }
+      }
   })
 );
+
+document.addEventListener("keyup", (logKey = (e) => {
+    if(e.code==="ArrowLeft"){
+        clearInterval(moveLeftInterval);
+        pulsadaA=false;
+    }
+    if(e.code === "ArrowRight"){
+        clearInterval(moveRightInterval);
+        pulsadaD=false;
+    }
+  }));
+

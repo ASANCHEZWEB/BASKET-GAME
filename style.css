@@ -5,12 +5,14 @@
     width: 606px;
     height: 680px;
     margin: 0 auto;
+    z-index: 50;
 }
 .tabla{
     position: relative;
     background-image: url("tabla.jpeg");
     width: 117px;
     height: 13px;
+    border-radius: 16px;
     
 }
 
@@ -37,4 +39,41 @@
     width: 60px;
     height: 60px;
     left: 275px;
+}
+.displayGame{
+    position: absolute;
+    background-image: url('basketIntro.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    top: 0px;
+    
+
+}
+.displayGame>button{
+    font-size: 30px;
+    background: red;
+    border: none;
+    border-radius: 26px;
+    width: 123px;
+    height: 54px;
+    cursor: pointer;
+    position: absolute;
+    left: 200px;
+    top: 352px;
+    color: white;
+}
+.containerFire{
+    width: 608px;
+    margin: 0 auto;
+    background: black;
+    height: 54px;
+}
+.containerFire>img{
+    height: 54px;
+}
+body{
+    display: flex;
+    justify-content: space-around;
 }

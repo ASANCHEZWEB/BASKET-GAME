@@ -1,3 +1,8 @@
+//eliminar cuatro de bienvenida
+let deleteStart=()=>{
+    document.querySelector('.displayGame').style.display="none";
+    document.getElementById("bgMusic").play()
+}
 
 //GENERAR LOS 3 MUROS Y MOVERLOS
 class Muro {
@@ -146,14 +151,18 @@ testRightColision() {
     setInterval(() => {
       //ejes de arriba a abajo
       if (this.top == 0 || this.testBottomColision()) {
+        document.getElementById("bote").play()
         this.directionY = "down";
-      } else if (this.top == 660||this.testTopColision()) {
+      } else if (this.top == 711||this.testTopColision()) {
+        document.getElementById("bote").play()
         this.directionY = "up";
       }
       //ejes de izquierda a derecha
       if (this.left == 0 || this.testRightColision()) {
+        document.getElementById("bote").play()
         this.directionX = "right";
       } else if (this.left == 585 || this.testLeftColision()) {
+        document.getElementById("bote").play()
         this.directionX = "left";
       }
 
@@ -201,6 +210,7 @@ let pulsadaD=false;
 document.addEventListener("keydown",(logKey = (e) => {
     if (e.code === "Space") {
       pelota.run = true;
+      document.querySelector('.pelota').setAttribute('class','pelota')
       pelota.move();
     }
     if (e.code === "ArrowLeft") {

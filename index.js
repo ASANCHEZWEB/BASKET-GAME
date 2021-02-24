@@ -202,7 +202,7 @@ class Pelota {
     testTablaColision() {
         let state = false;
         let positionTabla = Number(document.querySelector(".tabla").style.left.replace("px", ""));
-        if (this.left > positionTabla - 20 && this.left < positionTabla + 137 && this.top == 634) {
+        if (this.left > positionTabla - 20 && this.left < positionTabla + 137 && this.top > 634 && this.top < 637) {
             state = true;
             document.querySelector('.tabla').setAttribute('class', 'tabla animate__animated animate__wobble');
             setTimeout(() => {
@@ -261,18 +261,18 @@ class Pelota {
                 this.gameOver();
             }
             //ejes de arriba a abajo
-            if (this.top == 0 || this.testBottomColision() && this.run == true) {
+            if (this.top < 0 || this.testBottomColision() && this.run == true) {
                 document.getElementById("bote").play()
                 this.directionY = "down";
-            } else if (this.top == 713 || this.testTopColision() || this.testTablaColision() && this.run == true) {
+            } else if (this.top >= 713 || this.testTopColision() || this.testTablaColision() && this.run == true) {
                 document.getElementById("bote").play()
                 this.directionY = "up";
             }
             //ejes de izquierda a derecha
-            if (this.left == 0 || this.testRightColision() && this.run == true) {
+            if (this.left < 0 || this.testRightColision() && this.run == true) {
                 document.getElementById("bote").play()
                 this.directionX = "right";
-            } else if (this.left == 585 || this.testLeftColision() && this.run == true) {
+            } else if (this.left > 585 || this.testLeftColision() && this.run == true) {
                 document.getElementById("bote").play()
                 this.directionX = "left";
             }

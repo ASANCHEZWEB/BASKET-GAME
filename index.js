@@ -74,6 +74,7 @@ class Pelota {
     this.left = left;
     this.top = top;
     this.run = run;
+    this.myVar;
   }
 
   pintarPelota() {
@@ -170,7 +171,7 @@ testRightColision() {
     });
     return state;
   }
-
+//comprobar si colisiona con la tabla
 testTablaColision(){
     let state = false;
     let positionTabla=Number(document.querySelector(".tabla").style.left.replace("px", ""));
@@ -181,15 +182,25 @@ testTablaColision(){
         }
         return state;
 }
+//comprobar si colisiona con la campana
+
+
+sumarUno() {
+  this.myVar = setTimeout(function(){ document.querySelector('.counterScore').innerHTML= Number(document.querySelector('.counterScore').innerHTML)+1; }, 500);
+}
+myStopSumarUno() {
+  clearTimeout(this.myVar);
+}
 
 testCampanaColision(){
-   
+
 if(this.left>260 && this.left<327 && this.top<75){
     document.getElementById("campana").play()
     document.querySelector('.campana').setAttribute('class','campana animate__animated animate__swing');
     setTimeout(() => {document.querySelector('.campana').setAttribute('class','campana');
+this.myStopSumarUno();
+this.sumarUno();
     
-    document.querySelector('.counterScore').innerHTML= Number(document.querySelector('.counterScore').innerHTML)+1;
 }, 1000);
 
 }

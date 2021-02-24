@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
     <title>Basketball</title>
-    
+
 </head>
 
 <body>
@@ -17,7 +17,8 @@
             <h1 class="animate__animated animate__pulse animate__infinite	infinite">GAME OVER</h1>
             <img src="https://media.giphy.com/media/mf2aCKTor3BgQ/giphy.gif" />
             <p class="scoreGameOver"></p>
-            <button onclick="location.reload();" class="animate__animated animate__wobble animate__infinite	infinite">START AGAIN</button>
+            <button onclick="location.reload();"
+                class="animate__animated animate__wobble animate__infinite	infinite">START AGAIN</button>
         </div>
 
     </div>
@@ -30,9 +31,10 @@
         </div>
         <div class="containerGame">
             <div class="containerJuego">
-                <div class="pelota animate__animated animate__bounce animate__delay-1s animate__infinite infinite"></div>
+                <div class="pelota animate__animated animate__bounce animate__delay-1s animate__infinite infinite">
+                </div>
                 <div class="campana"></div>
-    
+
                 <div class="tabla" style="top: 576px;left: 241px;"></div>
             </div>
             <div class="containerFire">
@@ -43,8 +45,8 @@
                 <img src="fireGif.gif"></img>
             </div>
         </div>
-    
-        
+
+
         <audio id="bote">
             <source src="sonido-pelota.mp3" type="audio/mpeg">
         </audio>
@@ -66,10 +68,10 @@
         <div class="displayGame">
             <button onclick="deleteStart()">JUGAR</button>
         </div>
-        
-        
+
+
     </div>
-   <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

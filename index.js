@@ -188,6 +188,7 @@ if(this.left>260 && this.left<327 && this.top<75){
     document.getElementById("campana").play()
     document.querySelector('.campana').setAttribute('class','campana animate__animated animate__swing');
     setTimeout(() => {document.querySelector('.campana').setAttribute('class','campana');
+    
     document.querySelector('.counterScore').innerHTML= Number(document.querySelector('.counterScore').innerHTML)+1;
 }, 1000);
 
@@ -208,7 +209,7 @@ this.run=false;
     document.querySelector('.containerReStart').style.display="flex";
     document.getElementById('troll').play();
     document.querySelectorAll('#bgMusic')[1].play()
-    document.querySelector('.scoreGameOver').innerHTML= "Score: " + document.querySelector('.counterScore').innerHTML ;
+    document.querySelector('.scoreGameOver').innerHTML= "Score: " + document.querySelector('.counterScore').innerHTML;
     }, 2000);
 }
   move() {

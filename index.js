@@ -89,21 +89,21 @@ class Pelota {
     testBottomColision() {
         let state = false;
         muros.forEach((element, index) => {
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 244 && index == 2) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 243 && this.top - element.positionY < 245 && index == 2) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 193 && index == 1) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 193 && this.top - element.positionY < 195 && index == 1) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 144 && index == 0) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 143 && this.top - element.positionY < 145 && index == 0) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
@@ -117,21 +117,21 @@ class Pelota {
     testTopColision() {
         let state = false;
         muros.forEach((element, index) => {
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 194 && index == 2) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 173 && this.top - element.positionY < 175 && index == 2) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 143 && index == 1) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 123 && this.top - element.positionY < 125 && index == 1) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 94 && index == 0) {
+            if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY > 73 && this.top - element.positionY < 75 && index == 0) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeY');
                 setTimeout(() => {
@@ -146,21 +146,21 @@ class Pelota {
     testRightColision() {
         let state = false;
         muros.forEach((element, index) => {
-            if (index == 0 && this.left == element.positionX + 117 && this.top >= 175 && this.top <= 231) {
+            if (index == 0 && this.left < element.positionX + 117 && this.left > element.positionX + 110 && this.top >= 175 && this.top <= 231) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (index == 1 && this.left == element.positionX + 117 && this.top >= 330 && this.top <= 390) {
+            if (index == 1 && this.left < element.positionX + 117 && this.left > element.positionX + 110 && this.top >= 330 && this.top <= 390) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (index == 2 && this.left == element.positionX + 117 && this.top >= 477 && this.top <= 537) {
+            if (index == 2 && this.left < element.positionX + 117 && this.left > element.positionX + 110 && this.top >= 477 && this.top <= 537) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {
@@ -174,21 +174,21 @@ class Pelota {
     testLeftColision() {
         let state = false;
         muros.forEach((element, index) => {
-            if (index == 0 && this.left == element.positionX - 20 && this.top >= 175 && this.top <= 231) {
+            if (index == 0 && this.left > element.positionX - 20 && this.left < element.positionX - 15 && this.top >= 175 && this.top <= 231) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (index == 1 && this.left == element.positionX - 20 && this.top >= 330 && this.top <= 390) {
+            if (index == 1 && this.left > element.positionX - 20 && this.left < element.positionX - 15 && this.top >= 330 && this.top <= 390) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {
                     document.querySelectorAll('.muro')[index].setAttribute('class', 'muro');
                 }, 1000);
             }
-            if (index == 2 && this.left == element.positionX - 20 && this.top >= 477 && this.top <= 537) {
+            if (index == 2 && this.left > element.positionX - 20 && this.left < element.positionX - 15 && this.top >= 477 && this.top <= 537) {
                 state = true;
                 document.querySelectorAll('.muro')[index].setAttribute('class', 'muro animate__animated animate__shakeX');
                 setTimeout(() => {

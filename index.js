@@ -87,12 +87,18 @@ class Pelota {
     muros.forEach((element, index) => {
       if ( this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 244 && index == 2 ) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
       if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 193 && index == 1) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
       if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 144 && index == 0) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
     });
     return state;
@@ -103,12 +109,18 @@ testTopColision() {
     muros.forEach((element, index) => {
       if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 194 && index == 2) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
       if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 143 && index == 1) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
       if (this.left >= element.positionX - 25 && this.left < element.positionX + 125 && this.top - element.positionY == 94 && index == 0) {
         state = true;
+        document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeY');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
       }
     });
     return state;
@@ -120,12 +132,18 @@ testRightColision() {
     muros.forEach((element, index) => {
         if (index==0 && this.left==element.positionX+117&& this.top>=175 && this.top<=231) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
           if (index==1 && this.left==element.positionX+117&& this.top>=330 && this.top<=390) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
           if (index==2 && this.left==element.positionX+117&& this.top>=477 && this.top<=537) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
     });
     return state;
@@ -134,18 +152,35 @@ testRightColision() {
   testLeftColision() {
     let state = false;
     muros.forEach((element, index) => {
-        if (index==0 && this.left==element.positionX-20 && this.top>=175 && this.top<=231) {
+        if (index==0 && this.left==element.positionX-20 && this.top>=175 && this.top<=240) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
           if (index==1 && this.left==element.positionX-20 && this.top>=330 && this.top<=390) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
           if (index==2 && this.left==element.positionX-20 && this.top>=477 && this.top<=537) {
             state = true;
+            document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
+        setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
           }
     });
     return state;
   }
+
+testTablaColision(){
+    let state = false;
+    let positionTabla=Number(document.querySelector(".tabla").style.left.replace("px", ""));
+     if (this.left>positionTabla-20 && this.left<positionTabla+137 && this.top==634) {
+         state = true;
+         document.querySelector('.tabla').setAttribute('class','tabla animate__animated animate__wobble');
+         setTimeout(() => {document.querySelector('.tabla').setAttribute('class','tabla');}, 1000);
+        }
+        return state;
+}
 
   move() {
     setInterval(() => {
@@ -153,7 +188,7 @@ testRightColision() {
       if (this.top == 0 || this.testBottomColision()) {
         document.getElementById("bote").play()
         this.directionY = "down";
-      } else if (this.top == 711||this.testTopColision()) {
+      } else if (this.top == 711||this.testTopColision() || this.testTablaColision()) {
         document.getElementById("bote").play()
         this.directionY = "up";
       }

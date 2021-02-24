@@ -152,7 +152,7 @@ testRightColision() {
   testLeftColision() {
     let state = false;
     muros.forEach((element, index) => {
-        if (index==0 && this.left==element.positionX-20 && this.top>=175 && this.top<=240) {
+        if (index==0 && this.left==element.positionX-20 && this.top>=175 && this.top<=231) {
             state = true;
             document.querySelectorAll('.muro')[index].setAttribute('class','muro animate__animated animate__shakeX');
         setTimeout(() => {document.querySelectorAll('.muro')[index].setAttribute('class','muro');}, 1000);
@@ -182,40 +182,73 @@ testTablaColision(){
         return state;
 }
 
+testCampanaColision(){
+   
+if(this.left>260 && this.left<327 && this.top<75){
+    document.getElementById("campana").play()
+    document.querySelector('.campana').setAttribute('class','campana animate__animated animate__swing');
+    setTimeout(() => {document.querySelector('.campana').setAttribute('class','campana');
+    document.querySelector('.counterScore').innerHTML= Number(document.querySelector('.counterScore').innerHTML)+1;
+}, 1000);
+
+}
+}
+gameOver(){
+    
+this.top=2;
+this.left=2;
+this.run=false;
+    document.getElementById('bote').pause();
+    document.getElementById('bote').currentTime = 0;
+    document.getElementById('bgMusic').pause();
+    document.getElementById('bgMusic').currentTime = 0;
+    document.getElementById('surprise').play();
+    document.querySelector('.animationGame').setAttribute('class','animationGame animate__animated animate__hinge');
+    setTimeout(() => {
+    document.querySelector('.containerReStart').style.display="flex";
+    document.getElementById('troll').play();
+    document.querySelectorAll('#bgMusic')[1].play()
+    document.querySelector('.scoreGameOver').innerHTML= "Score: " + document.querySelector('.counterScore').innerHTML ;
+    }, 2000);
+}
   move() {
     setInterval(() => {
+        //comprobacion choque campana
+        this.testCampanaColision()
+        //comprobación game over
+      if(this.top==713){this.run=false;this.gameOver();}
       //ejes de arriba a abajo
-      if (this.top == 0 || this.testBottomColision()) {
+      if (this.top == 0 || this.testBottomColision() && this.run==true) {
         document.getElementById("bote").play()
         this.directionY = "down";
-      } else if (this.top == 711||this.testTopColision() || this.testTablaColision()) {
+      } else if (this.top == 713||this.testTopColision() || this.testTablaColision() && this.run==true) {
         document.getElementById("bote").play()
         this.directionY = "up";
       }
       //ejes de izquierda a derecha
-      if (this.left == 0 || this.testRightColision()) {
+      if (this.left == 0 || this.testRightColision() && this.run==true) {
         document.getElementById("bote").play()
         this.directionX = "right";
-      } else if (this.left == 585 || this.testLeftColision()) {
+      } else if (this.left == 585 || this.testLeftColision() && this.run==true) {
         document.getElementById("bote").play()
         this.directionX = "left";
       }
 
       //mover pelota
 
-      if (this.directionY == "up") {
+      if (this.directionY == "up" && this.run==true) {
         this.top--;
         document.querySelector(".pelota").style.top = `${this.top}px`;
       }
-      if (this.directionY == "down") {
+      if (this.directionY == "down" && this.run==true) {
         this.top++;
         document.querySelector(".pelota").style.top = `${this.top}px`;
       }
-      if (this.directionX == "left") {
+      if (this.directionX == "left" && this.run==true) {
         this.left--;
         document.querySelector(".pelota").style.left = `${this.left}px`;
       }
-      if (this.directionX == "right") {
+      if (this.directionX == "right" && this.run==true) {
         this.left++;
         document.querySelector(".pelota").style.left = `${this.left}px`;
       }
@@ -243,18 +276,18 @@ function moveLeft() {
 let pulsadaA=false;
 let pulsadaD=false;
 document.addEventListener("keydown",(logKey = (e) => {
-    if (e.code === "Space") {
+    if (e.code === "Space" && document.querySelector('.displayGame').style.display==="none") {
       pelota.run = true;
       document.querySelector('.pelota').setAttribute('class','pelota')
       pelota.move();
     }
-    if (e.code === "ArrowLeft") {
+    if (e.code === "ArrowLeft" && document.querySelector('.displayGame').style.display==="none") {
         if(pulsadaA!==true){
             pulsadaA=true;
             moveLeftInterval=setInterval(moveLeft, 1);
         }  
       }
-    if (e.code === "ArrowRight") {
+    if (e.code === "ArrowRight" && document.querySelector('.displayGame').style.display==="none") {
        if(pulsadaD!==true){
            pulsadaD=true;
            moveRightInterval=setInterval(moveRight, 1);

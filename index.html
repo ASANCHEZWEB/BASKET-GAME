@@ -7,43 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
-
     <title>Basketball</title>
-
+    
 </head>
+
 <body>
-    <div class="containerScore">
-        <h1>SCORE</h1>
-        <p>5</p>
-    </div>
-<div class="containerGame">
-    <div class="containerJuego">
-        <div class="pelota animate__animated animate__bounce animate__delay-1s animate__infinite infinite"></div>
-        <div class="campana"></div>
+    <div class="containerReStart">
+        <div>
+            <h1 class="animate__animated animate__pulse animate__infinite	infinite">GAME OVER</h1>
+            <img src="https://media.giphy.com/media/mf2aCKTor3BgQ/giphy.gif" />
+            <p class="scoreGameOver"></p>
+            <button onclick="location.reload();" class="animate__animated animate__wobble animate__infinite	infinite">START AGAIN</button>
+        </div>
 
-        <div class="tabla" style="top: 576px;left: 241px;"></div>
     </div>
-    <div class="containerFire">
-        <img src="fireGif.gif"></img>
-        <img src="fireGif.gif"></img>
-        <img src="fireGif.gif"></img>
-        <img src="fireGif.gif"></img>
-        <img src="fireGif.gif"></img>
-        <img src="fireGif.gif"></img>
+    <div class="animationGame">
+        <div class="containerScore">
+            <h1>SCORE</h1>
+            <p class="counterScore">0</p>
+            <img src="flechas.png"></img>
+            <img src="space.png"></img>
+        </div>
+        <div class="containerGame">
+            <div class="containerJuego">
+                <div class="pelota animate__animated animate__bounce animate__delay-1s animate__infinite infinite"></div>
+                <div class="campana"></div>
+    
+                <div class="tabla" style="top: 576px;left: 241px;"></div>
+            </div>
+            <div class="containerFire">
+                <img src="fireGif.gif"></img>
+                <img src="fireGif.gif"></img>
+                <img src="fireGif.gif"></img>
+                <img src="fireGif.gif"></img>
+                <img src="fireGif.gif"></img>
+            </div>
+        </div>
+    
+        
+        <audio id="bote">
+            <source src="sonido-pelota.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="bgMusic">
+            <source src="musica-fondo.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="bgMusic">
+            <source src="musica-fondo.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="campana">
+            <source src="campana.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="troll">
+            <source src="risa-troll.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="surprise">
+            <source src="surprise.mp3" type="audio/mpeg">
+        </audio>
+        <div class="displayGame">
+            <button onclick="deleteStart()">JUGAR</button>
+        </div>
+        
+        
     </div>
-</div>
-
-<script src="index.js"></script>
-<audio id="bote">
-    <source src="sonido-pelota.mp3" type="audio/mpeg">
-</audio>
-<audio id="bgMusic">
-    <source src="musica-fondo.mp3" type="audio/mpeg">
-</audio>
-<div class="displayGame">
-    <button onclick="deleteStart()">JUGAR</button>
-</div>
-
+   <script src="index.js"></script>
 </body>
 
 </html>

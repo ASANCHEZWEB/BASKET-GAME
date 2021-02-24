@@ -59,16 +59,16 @@
 }
 
 .displayGame>button {
-    font-size: 30px;
+    font-size: 2vw;
     background: red;
     border: none;
     border-radius: 26px;
-    width: 123px;
-    height: 54px;
+    width: 17vw;
+    height: 5vh;
     cursor: pointer;
     position: absolute;
     left: 200px;
-    top: 352px;
+    top: 48vh;
     color: white;
 }
 

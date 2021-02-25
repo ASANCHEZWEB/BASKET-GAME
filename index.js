@@ -1,5 +1,4 @@
-//disminuir zoom si es posible 
-document.querySelector('body').style.zoom = "85%";
+
 //eliminar cuatro de bienvenida
 let deleteStart = () => {
 

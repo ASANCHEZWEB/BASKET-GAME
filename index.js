@@ -202,7 +202,7 @@ class Pelota {
     testTablaColision() {
         let state = false;
         let positionTabla = Number(document.querySelector(".tabla").style.left.replace("px", ""));
-        if (this.left > positionTabla - 20 && this.left < positionTabla + 137 && this.top > 634 && this.top < 637) {
+        if (this.left > positionTabla - 20 && this.left < positionTabla + 137 && this.top > 632 && this.top < 637) {
             state = true;
             document.querySelector('.tabla').setAttribute('class', 'tabla animate__animated animate__wobble');
             setTimeout(() => {

@@ -12,7 +12,7 @@
 
 .tabla {
     position: relative;
-    background-image: url("tabla.jpeg");
+    background-image: url("tabla.jpg");
     width: 117px;
     height: 13px;
     border-radius: 16px;
@@ -48,7 +48,7 @@
 
 .displayGame {
     position: absolute;
-    background-image: url('basketIntro.jpeg');
+    background-image: url('basketIntro.jpg');
     background-size: cover;
     width: 100%;
     height: 100%;

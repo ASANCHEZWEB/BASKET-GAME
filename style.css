@@ -68,7 +68,7 @@
     cursor: pointer;
     position: absolute;
     left: 200px;
-    top: 56vh;
+    top: 59vh;
     color: white;
 }
 
@@ -148,5 +148,5 @@
 
 body {
     background-image: url("background-game.jpg");
-    zoom: 85%
+    zoom: 80%
 }
